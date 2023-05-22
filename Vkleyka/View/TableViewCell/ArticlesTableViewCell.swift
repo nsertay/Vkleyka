@@ -30,8 +30,6 @@ class ArticlesTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ArticlesCollectionViewCell.self, forCellWithReuseIdentifier: ArticlesCollectionViewCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -40,6 +38,10 @@ class ArticlesTableViewCell: UITableViewCell {
             make.height.equalTo(230)
             make.bottom.equalToSuperview().inset(20)
         }
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

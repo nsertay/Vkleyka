@@ -85,7 +85,7 @@ class StatementCollectionViewCell: UICollectionViewCell {
         mainStack.axis = .vertical
         addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(15)
             make.top.bottom.equalToSuperview().inset(10)
         }
        
@@ -110,18 +110,19 @@ class StatementCollectionViewCell: UICollectionViewCell {
         mainStack.addArrangedSubview(topStackView)
         topStackView.addArrangedSubview(firstCountryStack)
         topStackView.addArrangedSubview(secondCountryStack)
-        topStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
-        }
        
+        let bottomStackView = UIStackView()
+        mainStack.addArrangedSubview(bottomStackView)
+        bottomStackView.alignment = .fill
+
+        let spacerView = UIView()
+        spacerView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+
+        bottomStackView.addArrangedSubview(typeOfVisa)
+        bottomStackView.addArrangedSubview(spacerView)
+        bottomStackView.addArrangedSubview(visaDateReceipt)
+      
         
-        let bottomStack = UIStackView()
-        mainStack.addArrangedSubview(bottomStack)
-        bottomStack.addArrangedSubview(typeOfVisa)
-        bottomStack.addArrangedSubview(visaDateReceipt)
-        bottomStack.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
-        }
-        
+    
     }
 }

@@ -44,8 +44,6 @@ class PopularTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: PopularCollectionViewCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -55,6 +53,9 @@ class PopularTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview()
             make.height.equalTo(200)
         }
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -69,7 +70,6 @@ extension PopularTableViewCell: UICollectionViewDataSource {
         
         return cell
     }
-    
     
 }
 

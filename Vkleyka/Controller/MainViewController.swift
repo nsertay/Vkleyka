@@ -10,11 +10,6 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
-    enum Colors {
-        static let mainColor = UIColor(named: "mainColor")
-        static let mainBGColor = UIColor(named: "mainBackgroundColor")
-    }
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         
@@ -26,11 +21,18 @@ class MainViewController: UIViewController {
         
         return tableView
     }()
+    
+    private enum Colors {
+        static let mainColor = UIColor(named: "mainColor")
+        static let mainBGColor = UIColor(named: "mainBackgroundColor")
+    }
+    
+    private enum Fonts {
+        static let navTitleFont = UIFont(name: "Jost-Bold", size: 24.0)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         customLargeTitle()
         initialize()
         
@@ -44,10 +46,11 @@ class MainViewController: UIViewController {
 extension MainViewController {
     
     func customLargeTitle() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         if let appearance = navigationController?.navigationBar.standardAppearance {
             appearance.configureWithTransparentBackground()
             
-            if let customFont = UIFont(name: "Jost-Bold", size: 24.0) {
+            if let customFont = Fonts.navTitleFont {
                 appearance.titleTextAttributes = [.foregroundColor: Colors.mainColor!]
                 appearance.largeTitleTextAttributes = [.foregroundColor: Colors.mainColor!, .font: customFont]
             }
@@ -55,8 +58,6 @@ extension MainViewController {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
-            
-            
         }
     }
     

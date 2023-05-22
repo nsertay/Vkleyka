@@ -55,15 +55,14 @@ extension ButtonsTableViewCell {
         
         let xStack = UIStackView()
         xStack.axis = .horizontal
-        
-        
-        
+       
         addSubview(button)
         button.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(15)
             make.height.equalTo(50)
         }
+        
         addSubview(xStack)
         xStack.addArrangedSubview(articleLabel)
         xStack.addArrangedSubview(moreButton)

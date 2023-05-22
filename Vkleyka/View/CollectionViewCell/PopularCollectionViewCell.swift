@@ -45,7 +45,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
-        imageView.image = UIImage(named: "esentay")
+        imageView.image = UIImage(named: "USA")
         imageView.snp.makeConstraints { make in
             make.top.trailing.leading.equalToSuperview()
             make.height.equalTo(148)

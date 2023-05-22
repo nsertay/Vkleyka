@@ -46,8 +46,6 @@ class StatementTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(StatementCollectionViewCell.self, forCellWithReuseIdentifier: StatementCollectionViewCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -57,6 +55,10 @@ class StatementTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview()
             make.height.equalTo(110)
         }
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
